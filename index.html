@@ -1,0 +1,77 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>399 BURGUER - Feedbacks </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>399 BURGUER </h1>
+        <H2>Dê um feedback do estabelecimento.</H2>
+        <p>Sua opinião faz a diferença!</p>
+    </header>
+
+    <main>
+        <section id="dashboard" style="display: none;">
+            <h2>Desempenho Geral</h2>
+            <div class="stats-container">
+                <div class="stat-box"><span>Total de Votos</span><strong id="total-votos">0</strong></div>
+                <div class="stat-box"><span>Média de Satisfação</span><strong id="media-geral">0.0</strong></div>
+            </div>
+            <canvas id="meuGrafico"></canvas>
+        </section>
+
+        <section id="feedback-form">
+            <h2 id="titulo-form">Deixe sua avaliação</h2>
+            <input type="hidden" id="edit-index" value="-1">
+            
+            <input type="text" id="nome" placeholder="Seu nome">
+            
+            <label>Nota do Estabelecimento (1 a 10):</label>
+            <select id="nota">
+                <option value="10">10 - Impecável</option>
+                <option value="9">9 - Excelente</option>
+                <option value="8">8 - Muito Bom</option>
+                <option value="7">7 - Bom</option>
+                <option value="6">6 - Regular</option>
+                <option value="5">5 - Mediano</option>
+                <option value="4">4 - Ruim</option>
+                <option value="1">1 - Péssimo</option>
+            </select>
+
+            <textarea id="comentario" placeholder="Qual a sua dica de melhoria?"></textarea>
+            
+            <button id="btn-enviar" onclick="adicionarAvaliacao()">Publicar Avaliação</button>
+            <button id="btn-cancelar" onclick="cancelarEdicao()" style="display:none; background:#777; margin-top:5px;">Cancelar Edição</button>
+        </section>
+
+        <section id="lista-avaliacoes" style="display: none;">
+            <h2>Feedbacks da Galera</h2>
+            <div id="container-cards"></div>
+        </section>
+    </main>
+
+    <footer>
+        <button class="btn-admin" onclick="acessoGerente()">Acesso Gerente ⚙️</button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<section id="dashboard" style="display: none;">
+    <h2>Painel Administrativo</h2>
+    <div class="stats-container">
+        <div class="stat-box"><span>Total</span><strong id="total-votos">0</strong></div>
+        <div class="stat-box"><span>Média</span><strong id="media-geral">0.0</strong></div>
+    </div>
+    <canvas id="meuGrafico"></canvas>
+    
+    <button onclick="limparTodoHistorico()" style="background:#e74c3c; margin-top:20px; width:auto; padding:10px 20px;">
+        🗑️ Apagar Todo o Histórico
+    </button>
+</section>
